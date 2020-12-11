@@ -3,12 +3,23 @@ import './App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faLock, faEnvelope  } from '@fortawesome/free-solid-svg-icons';
 import { faFacebookF, faTwitter, faGoogle, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
+import doctor from './images/doctor.svg';
+import medicine from './images/medicine.svg';
 
 interface Props {
 
 }
 
 export const App: React.FC<Props> = () => {
+
+  const sign_up = () => {
+    document.querySelector(".container")?.classList.add("sign-up-mode");
+  }
+
+  const sign_in = () => {
+    document.querySelector(".container")?.classList.remove("sign-up-mode");
+  }
+
   return (
     <div className="container">
       <div className="forms-container">
@@ -78,7 +89,27 @@ export const App: React.FC<Props> = () => {
 
         </div>
       </div>
-      <div className="panels-container"></div>
+      <div className="panels-container">
+        <div className="panel left-panel">
+          <div className="content">
+            <h3>New here ?</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente delectus et iusto.</p>
+            <button className="btn transparent" id="sign-up-btn" onClick={() => sign_up()}>Sign up</button>
+          </div>
+
+          <img src={doctor} className="image" alt=""/>
+        </div>
+
+        <div className="panel right-panel">
+          <div className="content">
+            <h3>Already one of us ?</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente delectus et iusto.</p>
+            <button className="btn transparent" id="sign-in-btn" onClick={() => sign_in()}>Sign in</button>
+          </div>
+
+          <img src={medicine} className="image" alt=""/>
+        </div>
+      </div>
     </div>
   );
 };
